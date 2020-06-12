@@ -1,19 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <br />
+    <input v-model="nameUser" class="input" placeholder="Digite seu nome" />
+    <Hello :nome="nameUser" />
+    <HelloWorld msg="Esse é o mundo do Vue.js" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import Hello from "./components/Hello.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      nameUser: "",
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+    Hello,
+  },
+  watch: {
+    nameUser() {
+      console.log(this.nameUser);
+    },
+  },
+};
 </script>
 
 <style>
